@@ -13,7 +13,8 @@ namespace APIshop.Repository
         {
             using (var ctx = new EFShop())
             {
-                return ctx.Database.SqlQuery<get_productos>("get_productos")
+                var estado = 1;
+                return ctx.Database.SqlQuery<get_productos>("get_productos @p0", estado)
                     .ToList();
             }
         }

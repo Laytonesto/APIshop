@@ -12,7 +12,7 @@ namespace APIshop.Repository
         public void push_Usuario(string nombre, string genero, string correo)
         { 
             using (var ctx = new EFShop()){
-                ctx.Database.ExecuteSqlCommand("register_usuario @p0 @p1 @p2", nombre, genero, correo);
+                ctx.Database.ExecuteSqlCommand("register_usuario @p0, @p1, @p2", nombre, genero, correo);
             }
         }
     }
