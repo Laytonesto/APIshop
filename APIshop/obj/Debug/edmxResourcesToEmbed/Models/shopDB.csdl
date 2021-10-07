@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="shopModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="shopEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="get_productos" ReturnType="Collection(shopModel.get_productos_Result)">
+      <Parameter Name="estado" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="register_usuario">
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="genero" Mode="In" Type="String" />
+      <Parameter Name="correo" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="get_productos_Result">
+    <Property Type="Int32" Name="id_producto" Nullable="false" />
+    <Property Type="String" Name="nombre_producto" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="cantidad_unidades" Nullable="true" />
+    <Property Type="Double" Name="precio_unidad" Nullable="true" />
+    <Property Type="Int32" Name="estado" Nullable="true" />
+  </ComplexType>
+</Schema>
