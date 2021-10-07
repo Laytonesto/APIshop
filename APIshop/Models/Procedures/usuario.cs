@@ -23,6 +23,9 @@ namespace APIshop.Models.Procedures
         [StringLength(100)]
         public string correo { get; set; }
 
+        [StringLength(1000)]
+        public string password { get; set; }
+
 
     }
 }

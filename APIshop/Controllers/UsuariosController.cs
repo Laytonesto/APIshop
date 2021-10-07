@@ -15,7 +15,7 @@ namespace APIshop.Controllers
 
         // POST: api/productos
         [ResponseType(typeof(usuario))]
-        public IHttpActionResult Postusuarios(usuario usuario)
+        public IHttpActionResult Register(usuario usuario)
         {
             if (!ModelState.IsValid)
             {
@@ -23,10 +23,23 @@ namespace APIshop.Controllers
             }
 
             var user = new UsuariosRepository();
-            user.push_Usuario(usuario.nombre,usuario.genero,usuario.correo);
+            user.push_Usuario(usuario.nombre,usuario.genero,usuario.correo,usuario.password);
 
 
             return CreatedAtRoute("DefaultApi", new { id = usuario.id_usuario }, usuario);
+        }
+
+        // Post: api/login
+        [ResponseType(typeof(usuario))]
+        public IHttpActionResult Login(usuario usuario)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var user = new UsuariosRepository();
+
+            return CreatedAtRoute("DefaultApi", new { id = usuario.id_usuario }, user.login(usuario.correo, usuario.password));
         }
     }
 }

@@ -18,5 +18,22 @@ namespace APIshop.Repository
                     .ToList();
             }
         }
+
+        public List<get_productos> estado_producto(int id_producto, int? estado)
+        {
+            using (var ctx = new EFShop())
+            {
+                return ctx.Database.SqlQuery<get_productos>("estado_producto @p0, @p1", id_producto, estado)
+                     .ToList();
+            }
+        }
+
+        public void insert_producto(string nombre, int? cantidad, double? precio)
+        {
+            using (var ctx = new EFShop())
+            {
+                ctx.Database.ExecuteSqlCommand("insert_producto @p0, @p1, @p2", nombre, cantidad, precio);
+            }
+        }
     }
 }
