@@ -1,0 +1,31 @@
+﻿@model APIshop.Models.Procedures.usuario
+@{
+    ViewBag.Title = "Registro";
+}
+@using (Html.BeginForm())
+{
+    <div class="face face-right">
+        <div class="content">
+            <h2>Registro</h2>
+            <form onsubmit="event.preventDefault()">
+                <div class="field-wrapper">
+                    @Html.TextBoxFor(model => model.correo, new { @class = "form-control" })
+                    <label>e-mail</label>
+                </div>
+                <div class="field-wrapper">
+                    @Html.TextBoxFor(model => model.nombre, new { @class = "form-control" })
+                    <label>nombre</label>
+                </div>
+                <div class="field-wrapper">
+                    @Html.TextBoxFor(model => model.password, new { @class = "form-control" })
+                    <label>password</label>
+                </div>
+                <div class="field-wrapper">
+                    <input type="submit" value="registro" class="btn btn-default" />
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+}

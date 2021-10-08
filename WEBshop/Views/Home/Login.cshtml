@@ -1,0 +1,40 @@
+﻿@model APIshop.Models.Procedures.usuario
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+@using (Html.BeginForm())
+{
+    <div class="wrapper">
+        <div class="rec-prism">
+
+            <div class="face face-front">
+                <div class="content">
+                    <form onsubmit="event.preventDefault()">
+                        <div class="field-wrapper">
+                            @Html.TextBoxFor(model => model.correo, new { @class = "form-control" })
+                            <label>@Html.LabelFor(model => model.correo, new { @class = "control-label col-md-2" })</label>
+                        </div>
+                        <div class="field-wrapper">
+                            @Html.TextBoxFor(model => model.password, new { @class = "form-control" })
+                            <label>@Html.LabelFor(model => model.password, new { @class = "control-label col-md-2" })</label>
+                        </div>
+                        <div class="field-wrapper">
+                            <input type="submit" value="Login" class="btn btn-default" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+ 
+
+            <div class="face face-bottom">
+                <div class="content">
+                    <div class="thank-you-msg">
+                        Thank you!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
